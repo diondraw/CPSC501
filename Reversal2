@@ -1,0 +1,29 @@
+//Diondra A. Whindleton
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class Reversal {
+	public static void main(String[] args) {
+		public static void reverseFile(String input, String output) throws FileNotFoundException {
+			/* try {
+				FileReader input = new FileReader ("rats.txt");
+				PrinterWriter output = new PrintWriter(writer);
+				System.out.print("Guys are rats!");
+				System.out.print("Watch out!");
+			}
+			finally {
+		        try {
+		            if (output != null) output.close();
+		        } catch (Exception e) {
+		        }
+			} */
+			Word[] word = {new Word("Guys are rats!"),
+							new Word("Watch out!") };
+			try {
+				Filewriter input = new FileWriter("rats.txt");
+				PrintWriter output = new PrintWriter(input);
+			}
+		}
+	}
+}
