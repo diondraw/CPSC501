@@ -1,0 +1,66 @@
+//Diondra A. Whindleton
+
+import java.io.BufferedReader;
+//import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Reversal {
+	public static void main(String[] args) {
+	//public static void reverseFile(BufferedReader br, ArrayList<String> buffer) throws FileNotFoundException {
+	    BufferedReader br = null;
+	    try {
+	        br = new BufferedReader(new FileReader("/Users/dionwhindleton/CNU Grad School/Fall 2015/CPSC 501 - Software Engineering/rats.txt"));
+	        String txtfl = br.readLine();
+	        ArrayList<String> buffer = new ArrayList<String>();
+	        while (txtfl != null) {
+	            if (txtfl != null) {
+	                buffer.add("\n");
+	                StringBuilder str = new StringBuilder();
+	                String[] splitStr = txtfl.split(" ");
+	                for (int i = splitStr.length; i > 0; i--) {
+	                    str.append(splitStr[i - 1]).append(" ");
+	                }
+	                buffer.add(str.toString());
+	            }
+	            txtfl = br.readLine();
+	        }
+	        for(int i = buffer.size() - 1; i > 0; i--) {
+	            System.out.print(buffer.get(i));
+	        }
+	        br.close();
+	    } catch (IOException e) {
+    }
+}
+
+	/* public static void main(String[] args) {
+		Reversal reverseFile = new Reversal();
+	} */
+}
+	 /*public static void main(String[] args) {
+		public static void reverseFile(String input, String output) throws FileNotFoundException {
+			try {
+				FileReader input = new FileReader ("rats.txt");
+				PrinterWriter output = new PrintWriter(writer);
+				System.out.print("Guys are rats!");
+				System.out.print("Watch out!");
+			}
+			finally {
+		        try {
+		            if (output != null) output.close();
+		        } catch (Exception e) {
+		        }
+			}
+			Word[] words = {new Word("Guys are rats!"),
+							new Word("Watch out!") };
+			try {
+				Filewriter input = new FileWriter("rats.txt");
+				PrintWriter output = new PrintWriter(input);
+				System.out.println("Guys are rats!");
+				System.out.println("Watch out!");
+			} 
+			catch (IOException e){
+			}
+		}
+	} */
