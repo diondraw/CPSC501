@@ -1,0 +1,84 @@
+//Diondra A. Whindleton
+//final Reversal.java program
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+//import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Reversal {
+	public static void main(String[] args) {
+	//public static void reverseFile(BufferedReader br, ArrayList<String> buffer) throws FileNotFoundException {
+	//method not working, attempts in comments    
+		BufferedReader br = null;
+	    BufferedWriter bw = null;
+	    try {
+	    	//create reader | read in rats.txt file
+	        br = new BufferedReader(new FileReader("/Users/dionwhindleton/CNU Grad School/Fall 2015/CPSC 501 - Software Engineering/rats.txt"));
+	        //create writer | write results to specified folder
+	        bw = new BufferedWriter(new FileWriter("/Users/dionwhindleton/CNU Grad School/Fall 2015/CPSC 501 - Software Engineering/ratsresult.txt", true));
+	        String txtfl = br.readLine();
+	        //operations to print words backwards and split lines for extra spaces
+	        ArrayList<String> buffer = new ArrayList<String>();
+	        while (txtfl != null) {
+	            if (txtfl != null) {
+	                buffer.add("\n");
+	                StringBuilder str = new StringBuilder();
+	                String[] splitStr = txtfl.split(" ");
+	                for (int i = splitStr.length; i > 0; i--) {
+	                    str.append(splitStr[i - 1]).append(" ");
+	                }
+	                //add results to end of string
+	                buffer.add(str.toString());
+	                bw.write(txtfl + "\n"); //write to PC but not printing console result, tried MANY different things
+	            }
+	            txtfl = br.readLine();
+	        }
+	        //return elements in array list buffer
+	        for(int i = buffer.size() - 1; i > 0; i--) {
+	            System.out.print(buffer.get(i));
+	        }
+	        //close buffer streams
+	        bw.close();
+	        br.close();
+	    }
+	    //handles exceptions, events
+	    catch (IOException e) {
+	    }
+	}
+}
+
+
+	/* public static void main(String[] args) {
+		Reversal reverseFile = new Reversal();
+	} */
+
+	 /*public static void main(String[] args) {
+		public static void reverseFile(String input, String output) throws FileNotFoundException {
+			try {
+				FileReader input = new FileReader ("rats.txt");
+				PrinterWriter output = new PrintWriter(writer);
+				System.out.print("Guys are rats!");
+				System.out.print("Watch out!");
+			}
+			finally {
+		        try {
+		            if (output != null) output.close();
+		        } catch (Exception e) {
+		        }
+			}
+			Word[] words = {new Word("Guys are rats!"),
+							new Word("Watch out!") };
+			try {
+				Filewriter input = new FileWriter("rats.txt");
+				PrintWriter output = new PrintWriter(input);
+				System.out.println("Guys are rats!");
+				System.out.println("Watch out!");
+			} 
+			catch (IOException e){
+			}
+		}
+	} */
